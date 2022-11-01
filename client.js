@@ -55,3 +55,50 @@ function calculateIndividualEmployeeBonus( employee ) {
   // return new object with bonus results
 
 }
+
+
+
+/*
+
+####### rules in logic ##########\
+
+<= 2 star 
+
+return( currentAnnualSalary );
+
+-----
+
+3 star
+return(
+  currentAnualSalary * .04;
+)
+
+-----
+
+4 star
+return(
+  currentAnnaulSalary * .06;
+)
+
+-----
+
+5 star
+return(
+  currentAnnualSalary * .1;
+)
+
+--
+
+if yearsIn > 15 {
+  bonus += .05
+}
+--
+
+if annualIncome > 65,000{
+  bonus -= .01
+}
+
+--
+0 <= bonus <= 13 
+
+*/
