@@ -48,15 +48,27 @@ console.log('array of employee data: ',  employees );
 
 // This function will calculate 1 employee's bonus!
 //
-function calculateIndividualEmployeeBonus( employee ) {  
+function calculateIndividualEmployeeBonus( employeeNum ) {  
   // your logic here
+
+  // variables
+  let bonus = 0;
+  let currEmployee;
+  
+  // for loop 
+  for(let i = 0; i < employees.length; i++){
+    if(employeeNum == employees[i].employeeNumber){
+      currEmployee = employees[i]
+    }
+  }
+  
   
   
   // return new object with bonus results
 
 }
 
-
+console.log(calculateIndividualEmployeeBonus(2405))
 
 /*
 
@@ -65,6 +77,7 @@ function calculateIndividualEmployeeBonus( employee ) {
 <= 2 star 
 
 return( currentAnnualSalary );
+bonus = 0
 
 -----
 
@@ -72,21 +85,21 @@ return( currentAnnualSalary );
 return(
   currentAnualSalary * .04;
 )
-
+bonus = .04
 -----
 
 4 star
 return(
   currentAnnaulSalary * .06;
 )
-
+bonus = .06
 -----
 
 5 star
 return(
   currentAnnualSalary * .1;
 )
-
+bonus = .1
 --
 
 if yearsIn > 15 {
