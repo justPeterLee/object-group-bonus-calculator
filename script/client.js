@@ -152,13 +152,18 @@ let isNot = false;
 
 function submit(){
   let employNum = document.getElementById("employeeNum").value;
-  
+  let match = 0;
   for(let i=0; i<employees.length; i++){
     if(employNum == employees[i].employeeNumber){
       if(isNot){
         document.getElementById('not').remove();
       }
+      match ++
     }
+  }
+
+  if(match === 0){
+    isNot = false;
   }
   
   if(!isNot){
@@ -167,7 +172,6 @@ function submit(){
     notFound.innerHTML = "employee not found"
     document.getElementById('userNotFound').appendChild(notFound)
     isNot = true;
-
   }
 }
 
@@ -180,3 +184,121 @@ function keySubmit(event){
 }
 
 document.getElementById('employeeNum').addEventListener('keypress', keySubmit);
+
+
+
+
+
+
+
+
+
+
+
+// user card function 
+function userCard(emplyObj, bonusObj){
+  // creating userCard div
+  let userCard_ = document.createElement('div');
+  userCard_.id = 'userCard';
+  document.getElementById('container').appendChild(userCard_);
+
+
+
+  // creating userInfo div
+  let userInfo = document.createElement('div');
+  userInfo.id = 'user_info';
+  document.getElementById('userCard').appendChild(userInfo);
+
+  // creating pfp
+  let pfp = document.createElement('div');
+  pfp.id = 'pfp';
+  document.getElementById('user_info').appendChild(pfp);
+
+
+
+
+  // creating curr info
+  let currInfo = document.createElement('div');
+  currInfo.id = 'user_curr_info';
+
+
+
+
+  // creating userName
+  let userName = document.createElement('div');
+  userName.id = 'user_name';
+  userName.className = 'user_curr';
+  document.getElementById('user_curr_info').appendChild(userName);
+
+  // userName Contents
+  let name = document.createElement('h3');
+  name.innerHTML = "Name:";
+  document.getElementById('user_name').appendChild(name);
+
+  let nameEnter = document.createElement('p');
+  nameEnter.innerHTML = emplyObj.name;
+  document.getElementById('user_name').appendChild(nameEnter);
+
+
+
+
+
+
+  // creating userEmployNum
+  let userEmployeeNum = document.createElement('div');
+  userEmployeeNum.id = 'user_employeeNum';
+  userEmployeeNum.className = 'user_curr';
+  document.getElementById('user_curr_info').appendChild(userEmployeeNum);
+
+  // userEmployee Contents
+  let employee_num = document.createElement('h3');
+  employee_num.innerHTML = "Employee #:";
+  document.getElementById('user_employeeNum').appendChild(employee_num);
+
+  let employee_num_enter = document.createElement('p');
+  nameEnter.innerHTML = emplyObj.employeeNumber;
+  document.getElementById('user_employeeNum').appendChild(employee_num_enter);
+
+
+
+
+
+  // creating userRating
+  let userRating = document.createElement('div');
+  userRating.id = 'user_rating';
+  userRating.className = 'user_curr';
+  document.getElementById('user_curr_info').appendChild(userRating);
+
+  // userRating Contents
+  let userRate = document.createElement('h3');
+  userRate.innerHTML = "Rating:";
+  document.getElementById('user_rating').appendChild(userRate);
+
+  let userRateEnter = document.createElement('p');
+  userRateEnter.innerHTML = emplyObj.reviewRating;
+  document.getElementById('user_rating').appendChild(userRateEnter);
+
+
+
+
+  // creating userSalary
+  let userSalary = document.createElement('div');
+  userSalary.id = 'user_salary';
+  userSalary.className = 'user_curr';
+  document.getElementById('user_curr_info').appendChild(userSalary);
+
+  // userSalary Contents
+  let userSalaryLable = document.createElement('h3');
+  userSalaryLable.innerHTML = "Salary:";
+  document.getElementById('user_salary').appendChild(userSalaryLable);
+
+  let userSalaryNum = document.createElement('p');
+  userSalaryNum.innerHTML = emplyObj.annualSalary;
+  document.getElementById('user_salary').appendChild(userSalaryNum);
+  
+
+
+
+
+  
+}
