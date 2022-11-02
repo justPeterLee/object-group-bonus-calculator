@@ -80,6 +80,9 @@ body{
     display: flex;
 
     font-family: whiteBoard;
+
+    visibility: default;
+    
 }
 
 #user_info{

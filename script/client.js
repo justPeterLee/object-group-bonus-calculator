@@ -54,7 +54,7 @@ function calculateIndividualEmployeeBonus( employeeNum ) {
   // variables
   let bonus = 0;
   let currEmployee;
-  let employeeBonus = {};
+  let employeeBonus = {loyal: 'no', deduction: 'no'};
 
   let earnedBonus = [0,0,0,.04,.06,.1];
 
@@ -75,16 +75,18 @@ function calculateIndividualEmployeeBonus( employeeNum ) {
   if(currEmployee.employeeNumber.length === 4){
     // average salary reduction
     if(currEmployee.annualSalary > 65000){
-      bonus += .04
+      bonus += .04;
     }
     else{
       bonus += .05
     }
+    employeeBonus.loyal = "yes"
   }
 
   // average salary reduction
   if(currEmployee.annualSalary > 65000){
     bonus -= 1;
+    employeeBonus.deduction = "yes"
   }
 
   // creating bonus recived object
@@ -97,52 +99,22 @@ function calculateIndividualEmployeeBonus( employeeNum ) {
 
 console.log(calculateIndividualEmployeeBonus(2405))
 
-/*
 
-####### rules in logic ##########\
 
-<= 2 star 
+// fill in function
 
-return( currentAnnualSalary );
-bonus = 0
+function fillIn(employObj, bonusObj){
+  document.getElementById('input_name').innerHTML = employObj.name;
+  document.getElementById('input_employNum').innerHTML = employObj.employeeNumber;
+  document.getElementById('input_salary').innerHTML = employObj.annualSalary;
+  document.getElementById('input_rating').innerHTML = employObj.reviewRating;
 
------
-
-3 star
-return(
-  currentAnualSalary * .04;
-)
-bonus = .04
------
-
-4 star
-return(
-  currentAnnaulSalary * .06;
-)
-bonus = .06
------
-
-5 star
-return(
-  currentAnnualSalary * .1;
-)
-bonus = .1
---
-
-if yearsIn > 15 {
-  bonus += .05
+  document.getElementById('comp_num').innerHTML = bonusObj.totalCompensation;
+  document.getElementById('bonus_num').innerHTML = bonusObj.totalBonus;
+  document.getElementById('bonus_per_num').innerHTML = bonusObj.bonusPercentage;
+  document.getElementById('input_year_bonus').innerHTML = bonusObj.loyal;
+  document.getElementById('input_salary_deduction').innerHTML = bonusObj.deduction;
 }
---
-
-if annualIncome > 65,000{
-  bonus -= .01
-}
-
---
-0 <= bonus <= 13 
-
-*/
-
 
 
 
@@ -194,6 +166,18 @@ document.getElementById('employeeNum').addEventListener('keypress', keySubmit);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+/*
 
 // user card function 
 function userCard(emplyObj, bonusObj){
@@ -300,5 +284,95 @@ function userCard(emplyObj, bonusObj){
 
 
 
-  
+  // create userBonus div
+  userBonus = document.createElement('div');
+  userBonus.id = 'user_bonus';
+  document.getElementById('userCard').appendChild(userBonus);
+
+
+
+
+  // total comp
+  totalComp = document.createElement('div');
+  totalComp.id = 'total_comp';
+  document.getElementById('user_bonus').appendChild(totalComp);
+
+  //total comp contents
+  compLable = document.createElement('h2');
+  compLable.id = 'comp_lable';
+  compLable.innerHTML = 'Total Compensation';
+  document.getElementById('total_comp').appendChild(compLable)
+
+  compNum = document.createElement('h1');
+  compNum.id = 'comp_num';
+  compNum.innerHTML = bonusObj.totalCompensation;
+  document.getElementById('total_comp').appendChild(compNum);
+
+
+
+  // total bonus
+  totalBonus = document.createElement('div');
+  totalBonus.id = 'bonus_earned';
+  document.getElementById('user_bonus').appendChild(totalBonus);
+
+  //total comp contents
+  bonusLable = document.createElement('h2');
+  bonusLable.id = 'bonus_lable';
+  bonusLable.innerHTML = 'Total Compensation';
+  document.getElementById('bonus_earned').appendChild(bonusLable)
+
+  bonusNum = document.createElement('h1');
+  bonusNum.id = 'bonus_num';
+  bonusNum.innerHTML = bonusObj.totalBonus;
+  document.getElementById('bonus_earned').appendChild(bonusNum);
 }
+
+
+*/
+
+
+/*
+
+####### rules in logic ##########\
+
+<= 2 star 
+
+return( currentAnnualSalary );
+bonus = 0
+
+-----
+
+3 star
+return(
+  currentAnualSalary * .04;
+)
+bonus = .04
+-----
+
+4 star
+return(
+  currentAnnaulSalary * .06;
+)
+bonus = .06
+-----
+
+5 star
+return(
+  currentAnnualSalary * .1;
+)
+bonus = .1
+--
+
+if yearsIn > 15 {
+  bonus += .05
+}
+--
+
+if annualIncome > 65,000{
+  bonus -= .01
+}
+
+--
+0 <= bonus <= 13 
+
+*/
