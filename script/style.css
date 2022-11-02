@@ -125,24 +125,100 @@ body{
     width: 100%;
 
     border: 1px solid black;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+
 }
 #bonus_earned{
-    height: 12rem;
-    width: 100%;
-
-    border: 1px solid black;
-}
-#bonus_check{
     height: 10rem;
     width: 100%;
 
     border: 1px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+#user_bonus_sub{
+    height: 9.8rem;
+    width: 100%;
+
+    margin:0%;
+    padding: 0%;
+
+    border: 1px solid black;
+    border-bottom: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    display: flex;
+}
+#bonus_percent{
+    height:100%;
+    width: 20rem;
+    border-right: 1px solid black;
 }
 
 
 
 .user_curr{
     display: flex;
-    gap: 2.5rem;
+    justify-content: space-between;
+    margin-right: 3rem;
+    margin-left:3rem
+}
+
+
+
+
+
+
+#comp_lable, #bonus_lable{
+    margin-left: 1rem;
+    
+}
+#comp_num, #bonus_num{
+    margin:0%;
+    margin-right: 2rem;
+    padding: 0%;
+    display: flex;
+    justify-content: flex-end;
+
+    letter-spacing: 2px;
+}
+
+#comp_num{
+    font-size: 8rem;
+}
+#bonus_num{
+    margin:0%;
+    margin-right:2rem;
+    margin-top: -1rem;
+    font-size: 6rem;
+}
+#bonus_per_num{
+    font-size: 4rem;
+    margin: 0;
+    margin-right: 2rem;
+    display: flex;
+    justify-content: end;
+}
+
+#bonus_per_lable{
+    padding: 15px;
+    margin: 0%;
+}
+
+.bonus_sub_lable{
+    display: flex;
+    gap: 5rem;
+    margin-left: 5rem;
+    align-items: center;
+}
+#bonus_check{
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+
 }
