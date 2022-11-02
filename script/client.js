@@ -84,8 +84,8 @@ function calculateIndividualEmployeeBonus( employeeNum ) {
   }
 
   // average salary reduction
-  if(currEmployee.annualSalary > 65000){
-    bonus -= 1;
+  if(currEmployee.annualSalary > 65000 && bonus > 0){
+    bonus -= .01;
     employeeBonus.deduction = "yes"
   }
 
@@ -97,7 +97,7 @@ function calculateIndividualEmployeeBonus( employeeNum ) {
   return employeeBonus;
 }
 
-console.log(calculateIndividualEmployeeBonus(2405))
+console.log(calculateIndividualEmployeeBonus(6243))
 
 
 
@@ -123,20 +123,21 @@ function fillIn(employObj, bonusObj){
 let isNot = false;
 
 function submit(){
-  let employNum = document.getElementById("employeeNum").value;
-  let match = 0;
+  let employNum = document.getElementById("employeeNum").value.trim();
+
   for(let i=0; i<employees.length; i++){
     if(employNum == employees[i].employeeNumber){
       if(isNot){
         document.getElementById('not').remove();
+        isNot = false;
       }
-      match ++
+
+      document.getElementById('userCard').style.visibility = "visible";
+      fillIn(employees[i], calculateIndividualEmployeeBonus(employNum))
+      return null
     }
   }
 
-  if(match === 0){
-    isNot = false;
-  }
   
   if(!isNot){
     let notFound = document.createElement('p');
@@ -144,6 +145,7 @@ function submit(){
     notFound.innerHTML = "employee not found"
     document.getElementById('userNotFound').appendChild(notFound)
     isNot = true;
+    return null;
   }
 }
 
