@@ -150,6 +150,22 @@ if annualIncome > 65,000{
 // dom manipulation
 
 function submit(){
-  document.getElementById("enter").submit();
+  let employNum = document.getElementById("employeeNum").value;
+  
+  for(let i=0; i<employees.length; i++){
+    if(employNum == employees[i].employeeNumber){
+      return employNum;
+    }
+  }
+  
 }
 
+function keySubmit(event){
+  (event) => {
+    if(event.key === "Enter"){
+      document.getElementById('submit').click();
+    }
+  }
+}
+
+document.getElementById('employeeNum').addEventListener('keypress', keySubmit);

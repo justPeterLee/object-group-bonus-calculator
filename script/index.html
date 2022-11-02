@@ -3,16 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>Bonus Calculator Object Challenge</title>
-    <script src="client.js" charset="utf-8"></script>
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
+    <script src="client.js" charset="utf-8" defer></script>
+
+    
     <div id="enter">
       <h1>Employee Number:</h1>
-      <form>
+      <form onsubmit=submit()>
         <input type="text" id="employeeNum">
       </form>
-      <button id="submit">></button>
+      <button id="submit" onclick=submit()>></button>
     </div>
   </body>
 </html>
