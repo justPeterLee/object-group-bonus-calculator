@@ -20,6 +20,12 @@ body{
     
 }
 
+#container{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
 #enter{
     display: flex;
     align-items: center;
@@ -53,4 +59,90 @@ body{
     font-weight: 9000;
     cursor: pointer;
     background-color: 	#F8F8F8;
+}
+
+#not{
+    font-family: whiteBoard;
+    color:red;
+}
+
+
+
+
+
+
+
+#userCard{
+    height:40rem;
+    width: 70rem;
+    border: 1px solid black;
+
+    display: flex;
+
+    font-family: whiteBoard;
+}
+
+#user_info{
+    display: flex;
+    flex-direction: column;
+}
+
+#pfp{
+    height: 22rem;
+    width: 20rem;
+
+    border: 1px solid black;
+
+    margin: 20px;
+    margin-bottom: 0;
+
+    background-image: url(../media/pfp.png);
+    background-size: contain;
+}
+
+#user_curr_info{
+    height: 15rem;
+    width: 20rem;
+
+    border: 1px solid black;
+
+    margin: 20px;
+}
+
+
+#user_bonus{
+    height: 37.4rem;
+    width: 50rem;
+
+    border: 1px solid black;
+
+    margin: 20px;
+    margin-left: 0;
+}
+
+#total_comp{
+    height: 15rem;
+    width: 100%;
+
+    border: 1px solid black;
+}
+#bonus_earned{
+    height: 12rem;
+    width: 100%;
+
+    border: 1px solid black;
+}
+#bonus_check{
+    height: 10rem;
+    width: 100%;
+
+    border: 1px solid black;
+}
+
+
+
+.user_curr{
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
 }

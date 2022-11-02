@@ -148,24 +148,35 @@ if annualIncome > 65,000{
 
 
 // dom manipulation
+let isNot = false;
 
 function submit(){
   let employNum = document.getElementById("employeeNum").value;
   
   for(let i=0; i<employees.length; i++){
     if(employNum == employees[i].employeeNumber){
-      return employNum;
+      if(isNot){
+        document.getElementById('not').remove();
+      }
     }
   }
   
+  if(!isNot){
+    let notFound = document.createElement('p');
+    notFound.id = 'not';
+    notFound.innerHTML = "employee not found"
+    document.getElementById('userNotFound').appendChild(notFound)
+    isNot = true;
+
+  }
 }
 
 function keySubmit(event){
-  (event) => {
     if(event.key === "Enter"){
       document.getElementById('submit').click();
+      event.preventDefault();
     }
-  }
+
 }
 
 document.getElementById('employeeNum').addEventListener('keypress', keySubmit);
